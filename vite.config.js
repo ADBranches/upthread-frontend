@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from 'tailwindcss'
+import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
+// Modern config — no tailwind.config.js needed
 export default defineConfig({
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
-  theme: {
-    extend: {}
+  plugins: [tailwindcss(), react()],
+  server: {
+    port: 5173,
+    open: true,
   },
-  plugins: [react()],
 })
